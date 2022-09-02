@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
+import Row from "../components/Row";
 import requests from "../utils/requests";
 import { Movie } from "../typings";
 
@@ -27,7 +28,7 @@ const Home = ({
   trendingNow,
 }: Props) => {
   return (
-    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
+    <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
         <title>Home - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
@@ -37,13 +38,15 @@ const Home = ({
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         {/* Banner */}
         <Banner netflixOriginals={netflixOriginals} />
-        <section>
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
+        <section className="md:space-y-24">
+          <Row title="Tendencias" movies={trendingNow} />
+          <Row title="Top" movies={topRated} />
+          <Row title="Thrillers de acción" movies={actionMovies} />
+          {/* MyListComponent */}
+          <Row title="Comedias" movies={comedyMovies} />
+          <Row title="Horror" movies={horrorMovies} />
+          <Row title="Romance" movies={romanceMovies} />
+          <Row title="Documentales" movies={documentaries} />
         </section>
       </main>
       {/* Modal */}
